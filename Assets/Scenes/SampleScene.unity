@@ -414,7 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventoryCell: {fileID: 6246293313165672088, guid: e85e576d03c429347babc0c050e1c1db, type: 3}
   _transform: {fileID: 1027753531}
-  _items: []
+  _1items: []
 --- !u!114 &1027753536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventory: {fileID: 1027753535}
   _item1: {fileID: 11400000, guid: b441651abf6b1454f83bde606b21a728, type: 2}
-  _item2: {fileID: 11400000, guid: b32741486cbacc5429b1f2beeb7061be, type: 2}
+  _item2: {fileID: 11400000, guid: 145117e3c4d8eab4cb9cda743ebfd948, type: 2}
   _item3: {fileID: 11400000, guid: ff78a6ade1cd97a4ba5a64d7d59055c3, type: 2}
 --- !u!1 &1362731653
 GameObject:

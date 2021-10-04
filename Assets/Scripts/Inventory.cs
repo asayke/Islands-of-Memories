@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEditor.UIElements;
 using System.Linq;
-using ExtensionMethods;
+using System.Xml.Schema;
 using NUnit.Framework;
 using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private InventoryCell _inventoryCell;
     [SerializeField] private Transform _transform;
-    [SerializeField] private SerializableKeyValuePairList<Item,int> _items;
-    private SerializableKeyValuePairList<Item,int> _oldItems;
-    
+    [SerializeField] private List<ItemInfo> _items;
+    private List<ItemInfo> _oldItems;
+    //Максимальное кол-во слотов.
+    private int _maxSlots = 9;
     /// <summary>
     /// Максимальное количество предметов разных типов в инветоре,
     /// </summary>
@@ -26,6 +27,20 @@ public class Inventory : MonoBehaviour
         [ItemType.Foraging] = 64,
         [ItemType.Mining] = 20,
     };
+
+    [Serializable]
+    public class ItemInfo
+    {
+        public IItem Item;
+        public int Count;
+
+        public ItemInfo(IItem item, int count)
+        {
+            Item = item;
+            Count = count;
+        }
+    }
+    
     
     private void OnEnable()
     {
@@ -35,24 +50,27 @@ public class Inventory : MonoBehaviour
     {
         foreach (Transform child in _transform)
             Destroy(child.gameObject);
-        (_items, _oldItems) = (new SerializableKeyValuePairList<Item,int>(), _items);
+        (_items, _oldItems) = (new List<ItemInfo>(), _items);
         foreach (var item in _oldItems)
-            AddItem(item.Key,item.Value);
+            AddItem(item.Item,item.Count);
         _oldItems = null;
     }
     
-    public void AddItem(Item item, int amount)
+    public void AddItem(IItem item, int amount)
     {
-        if (_items.TryGetItemIndex(item, out int index) && _items[index].Value + amount <= _maxQuantity[_items[index].Key.ItemType])
+        //Находит первый предмент, схожий по item c поданным, и проверяет можно ли туда положить amount
+        ItemInfo itm = _items.Find(x => x.Item == item && x.Count + amount <= _maxQuantity[x.Item.ItemType]);
+        if (itm != null)
         {
-            _items[index] = new SerializableKeyValuePair<Item, int>(item, amount + _items[index].Value);  
+            _items[_items.FindIndex(x => x == itm)] = new ItemInfo(item, amount + itm.Count);
             Render();
         }
-        else
+        else if (_items.Count() < _maxSlots)
         {
-            _items.Add(new SerializableKeyValuePair<Item, int>(item, amount));
+            _items.Add(new ItemInfo(item,amount) );
             var cell = Instantiate(_inventoryCell, _transform);
             cell.Render(item, amount);
         }
     }
+    
 }
