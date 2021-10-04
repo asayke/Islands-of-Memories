@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 594962cdcdfe45d4ac7a11ea0dba09a6, type: 3}
-  m_Name: Chestplate
+  m_Script: {fileID: 11500000, guid: c7bdcc28030e020498b6267e20b0b6f4, type: 3}
+  m_Name: Fibres
   m_EditorClassIdentifier: 
-  _name: Chestplate
-  _icon: {fileID: 21300000, guid: 1e8a66707f4e6604f99425d43eff7145, type: 3}
+  _name: Fibres
+  _icon: {fileID: 21300000, guid: 5ef9e4638644ce845a747bb335596340, type: 3}
   _recipe: {fileID: 0}
-  _itemType: 1
-  _durability: 100
+  _itemType: 5

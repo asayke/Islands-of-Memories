@@ -12,21 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3782654d98d11546ac0dd0e64460a0b, type: 3}
   m_Name: Stone Axe
   m_EditorClassIdentifier: 
-  _item:
-    list: []
+  _received:
+    Item: {fileID: 11400000, guid: b32741486cbacc5429b1f2beeb7061be, type: 2}
+    Count: 1
   _components:
-    list:
-    - Key: {fileID: 0}
-      Value: 0
-    - Key: {fileID: 11400000, guid: ff78a6ade1cd97a4ba5a64d7d59055c3, type: 2}
-      Value: 0
-    - Key: {fileID: 0}
-      Value: 0
-    - Key: {fileID: 0}
-      Value: 0
-    - Key: {fileID: 0}
-      Value: 0
-    - Key: {fileID: 0}
-      Value: 0
-    - Key: {fileID: 0}
-      Value: 0
+  - Item: {fileID: 11400000, guid: 1c3dc47860a95b24ebe60a466f9d3e38, type: 2}
+    Count: 2
+  - Item: {fileID: 11400000, guid: b49965da811971444aaddf8d467e6801, type: 2}
+    Count: 4
+  - Item: {fileID: 11400000, guid: ff78a6ade1cd97a4ba5a64d7d59055c3, type: 2}
+    Count: 1

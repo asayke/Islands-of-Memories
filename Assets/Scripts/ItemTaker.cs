@@ -9,6 +9,8 @@ using UnityEngine.Serialization;
 public class ItemTaker : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
+    [SerializeField] private Craft _craft;
+    [SerializeField] private Recipe _recipe;
     [SerializeField] private Item _item1;
     [SerializeField] private Item _item2;
     [SerializeField] private Item _item3;
@@ -26,5 +28,11 @@ public class ItemTaker : MonoBehaviour
         {
             _inventory.AddItem(_item3, 1);
         }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            _craft.CreateItem(_recipe);
+        }
     }
 }
+
+

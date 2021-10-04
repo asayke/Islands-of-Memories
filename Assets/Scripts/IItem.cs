@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public interface IItem
 { 
@@ -6,5 +7,4 @@ public interface IItem
     Sprite Icon { get; }
     Recipe Recipe { get; }
     ItemType ItemType { get; }
-    
 }

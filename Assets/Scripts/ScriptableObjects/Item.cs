@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NUnit.Framework.Internal.Execution;
 using UnityEngine;
 
+[Serializable]
 [CreateAssetMenu(fileName = "Item", menuName = "Items/SimpleItem")]
 public class Item : ScriptableObject, IItem
 {
