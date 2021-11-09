@@ -1,102 +1,114 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEditorInternal;
 using UnityEngine;
+using static MaxQuantity;
 
-public class Inventory : MonoBehaviour
+// ReSharper disable PossibleInvalidOperationException
+//TODO Сделать ивент добавления в инвентарь.
+
+public class Inventory : MonoBehaviour, IInventory
 {
-    [SerializeField] private CellTemplate _cellTemplate;
-    [SerializeField] private Transform _transform;
-    public List<ItemInfo> _items = new List<ItemInfo>();
-    private List<ItemInfo> _oldItems;
-    //Максимальное кол-во слотов.
-    private readonly int _maxSlots = 9;
-    
-    /// <summary>
-    /// Максимальное количество предметов разных типов в инветоре,
-    /// </summary>
-    private readonly Dictionary<ItemType, int> _maxQuantity = new Dictionary<ItemType, int>()
-    {
-        [ItemType.Equipment] = 1,
-        [ItemType.Tools] = 1,
-        [ItemType.Weapons] = 1,
-        [ItemType.Food] = 64,
-        [ItemType.Foraging] = 64,
-        [ItemType.Mining] = 20,
-    };
 
-    [Serializable]
-    public class ItemInfo : IComparable<ItemInfo>
-    {
-        public Item Item;
-        public int Count;
-        private IComparable _comparableImplementation;
+    public int Capacity { get; private set; }
 
-        public ItemInfo(Item item, int count)
-        {
-            Item = item;
-            Count = count;
-        }
+    //Проверяет полон ли инвентарь.
+    public bool IsFull => _slots.All(x => x.IsFull);
 
-        public int CompareTo(ItemInfo other)
-        {
-            return Count.CompareTo(other.Count);
-        }
-    }
-    private void OnEnable()
+    //Лист слотов.
+    private List<IInventorySlot> _slots;
+
+    //Констуктор класса, подается ёмкость инвентаря.
+    public Inventory(int capacity)
     {
-        Render();
-    }
-    
-    private void Render()
-    {
-        foreach (Transform child in _transform)
-            Destroy(child.gameObject);
-        (_items, _oldItems) = (new List<ItemInfo>(), _items);
-        foreach (var item in _oldItems)
-        {
-            //-1 флаг того, что нужно удалить, решение дерьмо - автор Александр))
-            if (item.Count != -1)
-                AddItem(item.Item,item.Count);
-        }
-        _oldItems = null;
-    }
-    
-    public void AddItem(Item item, int amount)
-    {
-        //Находит первый предмент, схожий по item c поданным, и проверяет можно ли туда положить amount
-        var itm = _items.Find(x => x.Item == item && x.Count + amount <= _maxQuantity[x.Item.ItemType]);
-        if (itm != null)
-        {
-            _items[_items.FindIndex(x => x == itm)] = new ItemInfo(item, amount + itm.Count);
-            Render();
-        }
-        else if (_items.Count() < _maxSlots)
-        {
-            _items.Add(new ItemInfo(item, amount));
-            var cell = Instantiate(_cellTemplate, _transform);
-            cell.Render(item, amount);
-        }
-        else print("Инвентарь полон!");
+        this.Capacity = capacity;
+        _slots = new List<IInventorySlot>(capacity);
+        for (var i = 0; i < capacity; i++)
+            _slots.Add(new InventorySlot());
     }
 
-    public void DeleteItem(Item item, int amount)
+    public void TryToAdd(IItem item)
     {
-        var deletes = _items.FindAll(x => x.Item == item);
-        deletes.Sort();
-        for (int i = 0; i < deletes.Count; i++)
+        //Если инвентарь полон. Нельзя ничего добавить, следовательно выходим.
+        if (IsFull)
         {
-            if (deletes[i].Count - amount >= 0)
-            {
-                
-
-                amount = 0;
-            }
-            if (amount == 0)
-                break;
-        } 
-        Render();
+            Debug.Log($"Cannot add item ({item.Info.ItemType}); amount ({item.State.Amount})");
+            return;
+        }
+        
+        //Сначала находим неполный слот, в котором лежит Item такого же типа, как подаваемый, если такого нет, то находим пустой слот.
+        var suitableSlot = _slots.Find(x => x.Item == item && !x.IsFull) ?? _slots.Find(x => x.IsEmpty);
+        if (suitableSlot != null)
+            AddItem(suitableSlot, item);
     }
-    
+
+    private void AddItem(IInventorySlot slot, IItem item)
+    {
+        //Проверяет, влезает ли в ячейку количество предметов, которые мы хотим положить.
+        var isFits = slot.Amount + item.State.Amount <= item.Info.MaxQuantity;
+        var amountToAdd = isFits ? item.State.Amount : item.Info.MaxQuantity - slot.Amount;
+        if (slot.IsEmpty)
+        {
+            var clonedItem = item.Clone(amountToAdd);
+            slot.Set(item);
+        }
+        else
+            slot.Item.State.Amount += amountToAdd;
+
+        var amountLeft = item.State.Amount - amountToAdd;
+        if (amountLeft != 0)
+        {
+            item.State.Amount = amountLeft;
+            TryToAdd(item);
+        }
+    }
+
+    //TODO Сделать Remove метод.
+    public void Remove(ItemType itemType, int amount = 1)
+    {
+        
+    }
+
+    //Выполняет тразит предметема с одного слота (from) в другой (to)
+    public void Transit(IInventorySlot from, IInventorySlot to)
+    {
+        //Если слот в который мы переносим полный, выходим
+        if (to.IsFull)
+            return;
+        //Если слот в который мы переносим неполный, но предмет по типу не подходит, выходим
+        if (!to.IsEmpty && from.Item != to.Item)
+            return;
+
+        if (to.IsEmpty)
+        {
+            to.Set(from.Item);
+            from.Clear();
+        }
+        
+        //Проверяет, влезает ли в слот количество предметов, которые мы хотим положить.
+        var isFits = from.Amount + to.Amount <= from.Item.Info.MaxQuantity;
+
+        var amountToAdd = isFits ? from.Amount : from.Item.Info.MaxQuantity - to.Amount;
+        var amountLeft = from.Amount - amountToAdd;
+
+        to.Item.State.Amount += (int) amountToAdd;
+        if (isFits)
+            from.Clear();
+        else
+            from.Item.State.Amount = (int) amountLeft;
+    }
+
+
+    public IItem GetItem(string name)
+    {
+        return _slots.Find(x => x.Item.Info.Name == name).Item;
+    }
+
+    public IEnumerable<IItem> GetItems()
+    {
+        foreach (var slot in _slots)
+            yield return slot.Item;
+    }
 }
