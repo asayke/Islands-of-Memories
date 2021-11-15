@@ -7,7 +7,7 @@ namespace Buttons
     {
         public void OnClick()
         {
-            SceneManager.LoadScene("Scenes/SampleScene");
+            SceneManager.LoadScene(1);
         }
     }
 }
