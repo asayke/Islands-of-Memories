@@ -11,7 +11,7 @@
            private UIInventorySlot[] _uiSlots;
            public Inventory Inventory;
    
-           private void Start()
+           private void Awake()
            {
                _uiSlots = GetComponentsInChildren<UIInventorySlot>();
                Inventory = new Inventory(9);

@@ -4,7 +4,7 @@ using UnityEngine;
 using static  MaxQuantity;
 
 [Serializable]
-[CreateAssetMenu(fileName = "ItemInfo", menuName = "Create")]
+[CreateAssetMenu(fileName = "ItemInfo", menuName = "ItemInfo")]
 public class ItemInfo : ScriptableObject, IItemInfo
 {
     [SerializeField] private string _name;
