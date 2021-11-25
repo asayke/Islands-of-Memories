@@ -18,8 +18,7 @@
 
         public ItemState()
         {
-            _amount = 0;
+            _amount = 1;
             _isEquip = false;
         }
-      
     }

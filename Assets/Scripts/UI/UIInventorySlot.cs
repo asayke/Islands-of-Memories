@@ -15,8 +15,7 @@ public class UIInventorySlot : UISlot
     {
         _uiInventory = GetComponentInParent<UIInventory>();
     }
-
-
+    
     public void Set(IInventorySlot slot)
     {
         Slot = slot;
@@ -33,7 +32,7 @@ public class UIInventorySlot : UISlot
         otherSlotUI.Render();
     }
     
-    private void Render()
+    public void Render()
     {
         if (Slot != null)
             _uiInventoryItem.Render(Slot);

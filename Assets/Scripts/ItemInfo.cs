@@ -17,5 +17,6 @@ public class ItemInfo : ScriptableObject, IItemInfo
     public string Description => _description;
     public Sprite Icon => _icon;
     public ItemType ItemType => _itemType;
+    //TODO Добавить в интерфейс
     public int MaxQuantity => Quantity[ItemType];
 }

@@ -30,4 +30,9 @@ public class Item : IItem, IComparable<Item>
     {
         return this.Info.ItemType.CompareTo(other.Info.ItemType);
     }
+
+    public override string ToString()
+    {
+        return $"Name: {Info.Name}, Amount: {State.Amount}";
+    }
 }

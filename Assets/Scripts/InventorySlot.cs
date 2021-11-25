@@ -2,6 +2,7 @@
     using System.Collections.Generic;
     using System;
     using NUnit.Framework;
+    using UnityEngine;
     using static MaxQuantity;
     
     //TODO сделать pattern matching в зависимости от типа предмета закастить INFO. НЕ ТУТ!!!
