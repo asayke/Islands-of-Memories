@@ -8,4 +8,5 @@
          Sprite Icon { get; }
          ItemType ItemType { get; }
          int MaxQuantity { get; }
+         Type Type { get; }
     }

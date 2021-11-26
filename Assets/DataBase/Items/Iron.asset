@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61978ffe9f3e4d938e3c8c0e16519ec3, type: 3}
-  m_Name: Fibres
+  m_Name: Iron
   m_EditorClassIdentifier: 
-  _name: Fibres
-  _description: IDK
-  _icon: {fileID: 21300000, guid: 5ef9e4638644ce845a747bb335596340, type: 3}
-  _itemType: 5
-  _type: 4
+  _name: Iron
+  _description: Iron
+  _icon: {fileID: 21300000, guid: f3911860964088c4cbfd2536133b3003, type: 3}
+  _itemType: 6

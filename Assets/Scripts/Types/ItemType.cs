@@ -9,3 +9,14 @@ public enum ItemType
     Foraging, 
     Mining,
 }
+
+
+
+public enum Type
+{
+    None,
+    Rope,
+    Stone,
+    Axe,
+    Fibre,
+}

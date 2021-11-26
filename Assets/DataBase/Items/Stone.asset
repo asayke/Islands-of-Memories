@@ -16,3 +16,4 @@ MonoBehaviour:
   _description: It's Stone
   _icon: {fileID: 21300000, guid: d18fd7edffa809e4d85a136c0f95e562, type: 3}
   _itemType: 6
+  _type: 2

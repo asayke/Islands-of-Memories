@@ -5,6 +5,7 @@ using UnityEngine;
 public class Crafting : MonoBehaviour
 {
     [SerializeField] private Recipe _recipe;
+    [SerializeField] private Recipe _recipe1;
     private Inventory _inventory;
 
     private void Start()
@@ -18,24 +19,41 @@ public class Crafting : MonoBehaviour
         {
             CraftItem(_recipe);
         }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            CraftItem(_recipe1);
+        }
     }
 
     private void CraftItem(IRecipe recipe)
     {
         for (var i = 0; i < recipe.Components.Count; ++i)
         {
-            if (!_inventory.HasItem(recipe.Components[i], recipe.Amounts[i]))
+            var amountInfoPair = recipe.Components[i];
+            if (!_inventory.HasItem(amountInfoPair.ItemInfo, amountInfoPair.Amount))
             {
                 Debug.Log($"Таких предметов для крафта нет!");
                 return;
             }
         }
-        for (var i = 0; i < recipe.Components.Count; ++i)
+        if (!_inventory.IsAllOccupied)
         {
-            _inventory.Remove(recipe.Components[i].ItemType, recipe.Amounts[i]);
+            for (var i = 0; i < recipe.Components.Count; ++i)
+            {
+                var amountInfoPair = recipe.Components[i];
+                _inventory.Remove(amountInfoPair.ItemInfo.Type, amountInfoPair.Amount);
+            }
+        
+            for (int i = 0; i < recipe.Craft.Count; i++)
+            {
+                var itemToCraft = recipe.Craft[i];
+                //TODO Обзяательно переделать.
+                for (int j = 0; j < itemToCraft.Amount; j++)
+                {
+                    var itemToAdd = new Item(itemToCraft.ItemInfo);
+                    _inventory.TryToAdd(itemToAdd);
+                }
+            }
         }
-        var itemToAdd = new Item(recipe.Craft);
-        itemToAdd.State.Amount = recipe.Amount;
-        _inventory.TryToAdd(itemToAdd);
     }
 }

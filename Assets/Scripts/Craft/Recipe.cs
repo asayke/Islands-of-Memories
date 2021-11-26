@@ -7,22 +7,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Recipe", menuName = "NewRecipe")]
 public class Recipe : ScriptableObject, IRecipe
 {
-    [SerializeField] private List<ItemInfo> _components;
-    [SerializeField] private int[] _amounts;
-    [SerializeField] private ItemInfo _craft;
-    [SerializeField] private int _amount;
+    [SerializeField] private List<InfoAmountPair> _components;
+    [SerializeField] private List<InfoAmountPair> _craft;
 
-    public List<ItemInfo> Components => _components;
-    public int[] Amounts => _amounts;
-    public ItemInfo Craft => _craft;
-    public int Amount => _amount;
+    public List<InfoAmountPair> Components => _components;
+    public List<InfoAmountPair> Craft => _craft;
+    
+}
+
+[Serializable]
+public class InfoAmountPair
+{
+    public ItemInfo ItemInfo;
+    public int Amount;
 }
 
 //TODO перенести в отдельный файл, подумать над полями
 public interface IRecipe
 {
-    List<ItemInfo> Components { get; }
-    int[] Amounts { get; }
-    ItemInfo Craft { get; }
-    int Amount { get; }
+    List<InfoAmountPair> Components { get; }
+    List<InfoAmountPair> Craft { get; }
 }

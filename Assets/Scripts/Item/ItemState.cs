@@ -16,9 +16,9 @@
             set => _isEquip = value;
         }
 
-        public ItemState()
+        public ItemState(int amount = 1)
         {
-            _amount = 1;
+            _amount = amount;
             _isEquip = false;
         }
     }

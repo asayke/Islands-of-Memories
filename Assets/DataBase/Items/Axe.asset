@@ -16,3 +16,4 @@ MonoBehaviour:
   _description: It's Axe
   _icon: {fileID: 21300000, guid: 81e9ec1d21e1f8f43a06e7e75c17fc37, type: 3}
   _itemType: 2
+  _type: 3

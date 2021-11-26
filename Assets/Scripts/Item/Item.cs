@@ -15,6 +15,11 @@ public class Item : IItem, IComparable<Item>
         Info = info;
         State = new ItemState();
     }
+    public Item(IItemInfo info, int amount)
+    {
+        Info = info;
+        State = new ItemState(amount);
+    }
     
     public IItem Clone(int amount)
     {
@@ -22,13 +27,13 @@ public class Item : IItem, IComparable<Item>
         cloned.State.Amount = amount;
         return cloned;
     }
-
+    
     public GameObject GameObject { get; }
     
     //Сравнивает два предмета (Item) по типу.
     public int CompareTo(Item other)
     {
-        return this.Info.ItemType.CompareTo(other.Info.ItemType);
+        return this.Info.Type.CompareTo(other.Info.Type);
     }
 
     public override string ToString()

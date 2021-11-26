@@ -9,7 +9,7 @@ public interface IInventory
 
     void TryToAdd(IItem item);
 
-    void Remove(ItemType itemType, int amount = 1);
+    void Remove(Type type, int amount = 1);
     
     IItem GetItem(string name);
     

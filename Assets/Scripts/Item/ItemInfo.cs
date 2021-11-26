@@ -11,12 +11,12 @@ public class ItemInfo : ScriptableObject, IItemInfo
     [SerializeField] private string _description;
     [SerializeField] private Sprite _icon;
     [SerializeField] private ItemType _itemType;
-
-
+    [SerializeField] private Type _type;
     public string Name => _name;
     public string Description => _description;
     public Sprite Icon => _icon;
     public ItemType ItemType => _itemType;
     //TODO Добавить в интерфейс
     public int MaxQuantity => Quantity[ItemType];
+    public Type Type => _type;
 }
