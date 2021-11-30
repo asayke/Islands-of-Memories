@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
+using JetBrains.Annotations;
+using UnityEditorInternal;
+using UnityEngine;
+using static MaxQuantity;
 using Debug = UnityEngine.Debug;
 
-
-
+// ReSharper disable PossibleInvalidOperationException
 //TODO Сделать ивент добавления в инвентарь.
 
 public class Inventory : IInventory
@@ -159,7 +165,8 @@ public class Inventory : IInventory
             .Aggregate(0, (x, y) => x + y.State.Amount);
         return b >= amount;
     }
-    
+
+
     private void OnInventoryStateChanged()
     {
         InventoryStateChanged?.Invoke();

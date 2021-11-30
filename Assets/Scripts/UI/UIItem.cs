@@ -9,7 +9,6 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
     private CanvasGroup _canvasGroup;
     private Canvas _canvas;
     private RectTransform _rectTransform;
-    private Transform _inventoryTransform;
 
     private void Start()
     {
@@ -22,8 +21,6 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
     {
         _rectTransform.parent.SetAsLastSibling();
         _canvasGroup.blocksRaycasts = false;
-        _inventoryTransform = _rectTransform.parent.parent.transform;
-        _rectTransform.parent.parent = _canvas.transform;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -34,8 +31,6 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        _rectTransform.parent.parent = _inventoryTransform;
-        _rectTransform.parent.SetAsFirstSibling();
         _rectTransform.localPosition = new Vector3(0, 0, 0);
         _canvasGroup.blocksRaycasts = true;
     }
