@@ -3,11 +3,12 @@ using UnityEngine.SceneManagement;
 
 namespace Buttons
 {
-    public class Settings : MonoBehaviour,IButton
+    public class Resume : MonoBehaviour, IButton
     {
+        
         public void OnClick()
         {
-            SceneManager.LoadScene(1);
+
         }
     }
 }

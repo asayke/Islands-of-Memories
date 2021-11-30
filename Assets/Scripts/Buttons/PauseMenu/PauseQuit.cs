@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace Buttons
 {
-    public class Quit : MonoBehaviour,IButton
+    public class PauseQuit : MonoBehaviour,IButton
     {
         public void OnClick()
         {
