@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework.Internal.Execution;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class Item : IItem, IComparable<Item>
