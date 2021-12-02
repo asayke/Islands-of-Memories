@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6d59974256b5dd648af3e798cee34bae
+guid: 0f67c6d718767fd40b7934c449f759db
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Christmas Reign Deco PERSONAL
+  - Nunito
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -15,10 +15,10 @@ public class UIInventory : MonoBehaviour
     private void Awake()
     {
         _uiSlots = GetComponentsInChildren<UIInventorySlot>();
-        Inventory = new Inventory(25);
+        Inventory = new Inventory(9);
         Inventory.InventoryStateChanged += OnInventoryStateChanged;
         SetupInventoryUI(Inventory);
-        _vecticalInventory.SetActive(false);
+        //_vecticalInventory.SetActive(false);
     }
 
     //TODO нужно это убрать!
@@ -38,7 +38,7 @@ public class UIInventory : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            _vecticalInventory.SetActive(!_vecticalInventory.activeSelf);
+            //_vecticalInventory.SetActive(!_vecticalInventory.activeSelf);
         }
     }
 
