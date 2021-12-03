@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Debug = UnityEngine.Debug;
 
-
-
-//TODO Сделать ивент добавления в инвентарь.
-
 public class Inventory : IInventory
 {
     public int Capacity { get; private set; }

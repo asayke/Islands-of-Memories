@@ -23,9 +23,9 @@ public class Item : IItem, IComparable<Item>
         cloned.State.Amount = amount;
         return cloned;
     }
-    
+
     public GameObject GameObject { get; }
-    
+
     //Сравнивает два предмета (Item) по типу.
     public int CompareTo(Item other)
     {

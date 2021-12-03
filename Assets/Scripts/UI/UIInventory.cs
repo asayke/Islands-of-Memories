@@ -18,28 +18,6 @@ public class UIInventory : MonoBehaviour
         Inventory = new Inventory(9);
         Inventory.InventoryStateChanged += OnInventoryStateChanged;
         SetupInventoryUI(Inventory);
-        //_vecticalInventory.SetActive(false);
-    }
-
-    //TODO нужно это убрать!
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            var item = new Item(_rock);
-            Inventory.TryToAdd(item);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            var item = new Item(_axe);
-            Inventory.TryToAdd(item);
-        }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            //_vecticalInventory.SetActive(!_vecticalInventory.activeSelf);
-        }
     }
 
     private void OnInventoryStateChanged()
