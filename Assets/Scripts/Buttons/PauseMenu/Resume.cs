@@ -8,7 +8,7 @@ namespace Buttons
         
         public void OnClick()
         {
-
+            SceneManager.LoadScene(0);
         }
     }
 }

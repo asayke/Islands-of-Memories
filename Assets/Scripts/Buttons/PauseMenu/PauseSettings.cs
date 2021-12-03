@@ -6,9 +6,13 @@ namespace Buttons
 {
     public class PauseSettings : MonoBehaviour,IButton
     {
+        [SerializeField] private GameObject pauseMenu;
+        [SerializeField] private GameObject settingsMenu;
         public void OnClick()
         {
-            SceneManager.LoadScene(3);
+            //pauseMenu.SetActive(false);
+            //settingsMenu.SetActive(true);
+            SceneManager.LoadScene(0);
         }
     }
 }
