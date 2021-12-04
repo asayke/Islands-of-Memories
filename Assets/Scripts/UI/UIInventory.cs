@@ -8,7 +8,7 @@ public class UIInventory : MonoBehaviour
     [SerializeField] private ItemInfo _rock;
     [SerializeField] private ItemInfo _axe;
     [SerializeField] private GameObject _vecticalInventory;
-    private UIInventorySlot[] _uiSlots;
+    public UIInventorySlot[] _uiSlots;
     public Inventory Inventory;
 
 

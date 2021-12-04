@@ -19,33 +19,24 @@ public class Panels : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _healthBar.DecreaseValue(7);
-        }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            _thistBar.IncreaseValue(100f);
-        }
-        
         if (!_thistBar.IsEmpty)
         {
-            _thistBar.DecreaseValue(0.001f/2f); //0.0005f подходит нормально
+            _thistBar.DecreaseValue(0.000096f);
         }
 
         if (!_mealBar.IsEmpty)
         {
-            _mealBar.DecreaseValue(0.004f/2f);
+            _mealBar.DecreaseValue(0.00006f); //0.00006f
         }
-
-        if (_thistBar.IsEmpty || _mealBar.IsEmpty)
-        {
-            _healthBar.DecreaseValue(0.005f);
-        }
+        
         if (!_energyBar.IsEmpty)
         {
-            _energyBar.DecreaseValue(0.0001f/2f);
+            _energyBar.DecreaseValue(0.00001f);
+        }
+        
+        if (_thistBar.IsEmpty || _mealBar.IsEmpty)
+        {
+            _healthBar.DecreaseValue(0.0008f);
         }
     }
 }

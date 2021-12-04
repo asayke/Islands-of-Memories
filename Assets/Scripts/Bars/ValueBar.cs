@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using static System.Math;
 public class ValueBar : MonoBehaviour, IBar
 {
     [SerializeField] protected Slider _slider;
     [SerializeField] protected Image _imageToFill;
-    
+    [SerializeField] protected Text _text;
     public Slider Slider => _slider;
     public Image Image => _imageToFill;
     public bool IsEmpty => _slider.value <= 0;
@@ -18,12 +18,21 @@ public class ValueBar : MonoBehaviour, IBar
      public virtual void DecreaseValue(float value)
      {
          _slider.value -= value;
+         UpdateTextValue();
      }
 
      public virtual void IncreaseValue(float value)
      {
          _slider.value += value;
+         UpdateTextValue();
      }
+
+     public virtual void UpdateTextValue()
+     {
+         if (_text != null)
+            _text.text = $"{(int)_slider.value}/{_slider.maxValue}";
+     }
+
 }
 
 
@@ -41,5 +50,6 @@ public interface IBar
     public void DecreaseValue(float value);
 
     public void IncreaseValue(float value);
-    
+
+    public void UpdateTextValue();
 }
