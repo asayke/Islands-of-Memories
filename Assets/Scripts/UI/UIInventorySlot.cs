@@ -11,7 +11,6 @@ public class UIInventorySlot : UISlot
     public IInventorySlot Slot { get; private set; }
 
     public bool IsSelected = false;
-
     
     private UIInventory _uiInventory;
 

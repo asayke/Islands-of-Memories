@@ -5,7 +5,6 @@ public interface IInventorySlot
     bool IsEmpty { get; }
     int Amount { get; }
     IItem Item { get;}
-
     void Set(IItem item);
     void Clear();
 }

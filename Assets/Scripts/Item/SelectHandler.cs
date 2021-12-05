@@ -5,11 +5,12 @@ public class SelectHandler : MonoBehaviour
 {
     [SerializeField] private GameObject _prompts;
     [SerializeField] private UIInventory _inventory;
+    [SerializeField] private CampFire _campFire;
     private void Update()
     {
         //Часть для вызова подсказки на забор предмета.
         var ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out var hit,4f))
+        if (Physics.Raycast(ray, out var hit,5f))
         {
             if (hit.transform.CompareTag("Selectable"))
             {
@@ -24,9 +25,12 @@ public class SelectHandler : MonoBehaviour
                     Destroy(hit.transform.gameObject);
                 }
             }
+            else if (hit.transform.CompareTag("CampFire"))
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                    _campFire.AddBranch();
+            }
             else _prompts.SetActive(false);
         } else _prompts.SetActive(false);
-        
-        
     }
 }
