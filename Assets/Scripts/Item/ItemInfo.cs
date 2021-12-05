@@ -7,12 +7,12 @@ using static  MaxQuantity;
 [CreateAssetMenu(fileName = "ItemInfo", menuName = "ItemInfo")]
 public class ItemInfo : ScriptableObject, IItemInfo
 {
-    [SerializeField] private string _name;
-    [SerializeField] private string _description;
-    [SerializeField] private Sprite _icon;
-    [SerializeField] private ItemType _itemType;
-    [SerializeField] private Type _type;
-    [SerializeField] private GameObject _gameObject;
+    [SerializeField] protected string _name;
+    [SerializeField] protected string _description;
+    [SerializeField] protected Sprite _icon;
+    [SerializeField] protected ItemType _itemType;
+    [SerializeField] protected Type _type;
+    [SerializeField] protected GameObject _gameObject;
     public string Name => _name;
     public string Description => _description;
     public Sprite Icon => _icon;

@@ -16,7 +16,12 @@ public class Item : IItem, IComparable<Item>
         Info = info;
         State = new ItemState(amount);
     }
-    
+
+    protected Item()
+    {
+        throw new NotImplementedException();
+    }
+
     public IItem Clone(int amount)
     {
         var cloned = new Item(Info);

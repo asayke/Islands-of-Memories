@@ -1,6 +1,7 @@
     
     using System;
     using UnityEngine;
+    
     public interface IItemInfo
     {
          string Name { get; }

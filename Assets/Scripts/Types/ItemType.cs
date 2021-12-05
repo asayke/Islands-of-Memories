@@ -10,8 +10,6 @@ public enum ItemType
     Mining,
 }
 
-
-
 public enum Type
 {
     None,
@@ -19,4 +17,5 @@ public enum Type
     Stone,
     Axe,
     Fibre,
+    Coconut,
 }

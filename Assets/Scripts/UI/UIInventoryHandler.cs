@@ -1,19 +1,24 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 public class UIInventoryHandler : MonoBehaviour
 {
+    private Panels _panels;
     private UIInventory _uiInventory;
-
+    private UIInventorySlot _selectingSlot;
+    
     private void Awake()
     {
+        _panels = GetComponent<Panels>();
         _uiInventory = GetComponent<UIInventory>();
     }
     
     private void Update()
     {
+        //TODO Исправить все это... ужасно просто....)))
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Select(1);
@@ -55,6 +60,39 @@ public class UIInventoryHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             Select(9);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            //TODO убрать try catch
+            try
+            {
+                _selectingSlot = _uiInventory._uiSlots.FirstOrDefault(x => x.IsSelected);
+                if (_selectingSlot != null && !_selectingSlot.Slot.IsEmpty)
+                {
+                    if (_selectingSlot.Slot.Item?.Info?.ItemType == ItemType.Food)
+                    {
+                        EatItem(_selectingSlot.Slot.Item);
+                        _uiInventory.Inventory.RemoveFromSlot(_selectingSlot.Slot.Item.Info.Type,_selectingSlot.Slot);
+                    }
+                }
+            }
+            catch
+            {
+            }
+        }
+    }
+
+
+    private void EatItem(IItem item)
+    {
+        if (item.Info is EatItemInfo itemInfo)
+        {
+            _panels.HealthBar.IncreaseValue(itemInfo.HealthValue);
+            _panels.ThistBar.IncreaseValue(itemInfo.ThirstValue);
+            _panels.MealBar.IncreaseValue(itemInfo.MealValue);
+            _panels.EnergyBar.IncreaseValue(itemInfo.EnergyValue);
+            
         }
     }
 
