@@ -5,9 +5,14 @@ namespace Buttons
 {
     public class MenuSettings : MonoBehaviour,IButton
     {
+        [SerializeField] private GameObject mainMenu;
+        [SerializeField] private GameObject settingsMenu;
         public void OnClick()
         {
-            SceneManager.LoadScene(1);
+            mainMenu.SetActive(false);
+            settingsMenu.SetActive(true);
+            
         }
+        
     }
 }
