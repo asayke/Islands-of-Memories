@@ -10,9 +10,9 @@ namespace Buttons
         [SerializeField] private GameObject settingsMenu;
         public void OnClick()
         {
-            //pauseMenu.SetActive(false);
-            //settingsMenu.SetActive(true);
-            SceneManager.LoadScene(0);
+            pauseMenu.SetActive(false);
+            settingsMenu.SetActive(true);
+            //SceneManager.LoadScene(0);
         }
     }
 }
