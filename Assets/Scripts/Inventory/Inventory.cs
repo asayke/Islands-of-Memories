@@ -67,6 +67,16 @@ public class Inventory : IInventory
         }
     }
 
+    public void RemoveFromSlot(Type type,IInventorySlot inventorySlot, int amount = 1)
+    {
+        if (amount > inventorySlot.Amount)
+            throw new ArgumentException();
+        inventorySlot.Item.State.Amount -= amount;
+        if (inventorySlot.Amount <= 0)
+            inventorySlot.Clear();
+        OnInventoryStateChanged();
+    }
+    
     public void Remove(Type type, int amount = 1)
     {
         try
@@ -98,6 +108,9 @@ public class Inventory : IInventory
             Debug.Log(e.Message);
         }
     }
+
+   
+    
 
     //Выполняет тразит предметема с одного слота (from) в другой (to)
     public void Transit(IInventorySlot from, IInventorySlot to)

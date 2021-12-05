@@ -9,4 +9,5 @@
          ItemType ItemType { get; }
          int MaxQuantity { get; }
          Type Type { get; }
+         GameObject GameObject { get; }
     }

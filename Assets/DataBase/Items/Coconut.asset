@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Coconut
   _description: 
-  _icon: {fileID: 21300000, guid: d88cb50bebb94d547969fe276a89757b, type: 3}
+  _icon: {fileID: 21300000, guid: 5a40263eff2e5c648a06733004902f96, type: 3}
   _itemType: 4
-  _type: 0
+  _type: 4
+  _gameObject: {fileID: 5598428000690058211, guid: 6ae19d2992c31b04daf00e32289d36c0, type: 3}

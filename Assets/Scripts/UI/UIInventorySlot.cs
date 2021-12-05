@@ -3,12 +3,16 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//TODO Сделать IEndHandler прям внутри UISlot
 public class UIInventorySlot : UISlot
 {
     [SerializeField] private UIInventoryItem _uiInventoryItem;
-
+    
     public IInventorySlot Slot { get; private set; }
 
+    public bool IsSelected = false;
+
+    
     private UIInventory _uiInventory;
 
     private void Awake()
@@ -20,7 +24,7 @@ public class UIInventorySlot : UISlot
     {
         Slot = slot;
     }
-
+    
     public override void OnDrop(PointerEventData eventData)
     {
         var otherItemUI = eventData.pointerDrag.GetComponent<UIInventoryItem>();
@@ -31,7 +35,7 @@ public class UIInventorySlot : UISlot
         Render();
         otherSlotUI.Render();
     }
-    
+
     public void Render()
     {
         if (Slot != null)

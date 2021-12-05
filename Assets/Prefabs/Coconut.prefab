@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7376147803101487435}
   - component: {fileID: 6303048785539319263}
   - component: {fileID: 6664463482283232689}
-  - component: {fileID: 4116174448669959404}
   m_Layer: 0
   m_Name: default
   m_TagString: Selectable
@@ -96,19 +95,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.2328378
   m_Center: {x: 0, y: 0.9805919, z: 0.04251}
---- !u!114 &4116174448669959404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3475749196342512442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b3252ac9e849bdab032c7be4b65a08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemInfo: {fileID: 11400000, guid: cdf98f8a0e0407f40b6af2432df7a9df, type: 2}
 --- !u!1 &5598428000690058211
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +104,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5114484122769385817}
-  - component: {fileID: 1325299809435000554}
+  - component: {fileID: -381339324237245326}
+  - component: {fileID: 6876137781348432649}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: Selectable
@@ -134,23 +121,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5598428000690058211}
   m_LocalRotation: {x: -0.6994098, y: 0.11146015, z: -0.45047575, w: 0.54357535}
-  m_LocalPosition: {x: 9.579, y: 3.1897683, z: 0.3460402}
+  m_LocalPosition: {x: 0, y: 1.235, z: 1.22}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children:
   - {fileID: 5659467844438874113}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -41.296, y: -269.75598, z: -480.75598}
---- !u!135 &1325299809435000554
-SphereCollider:
+--- !u!54 &-381339324237245326
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5598428000690058211}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.232838
-  m_Center: {x: 0, y: 0.9805919, z: 0}
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6876137781348432649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598428000690058211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b3252ac9e849bdab032c7be4b65a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemInfo: {fileID: 11400000, guid: 90bcee6158dd68041b5a71fa549735d3, type: 2}

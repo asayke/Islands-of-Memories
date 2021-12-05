@@ -11,9 +11,6 @@ public class Camera : MonoBehaviour
     private float _cameraPitch = 0.0f;
     
     
-    
-    
-    
     private void FixedUpdate()
     {
         UpdateLooking();
@@ -33,6 +30,5 @@ public class Camera : MonoBehaviour
         
         transform.Rotate(Vector3.up * mouseDelta.x * _mouseSens);
     }
-
 
 }

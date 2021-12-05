@@ -17,7 +17,7 @@ public class SelectHandler : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     var dropItem = hit.transform.GetComponent<DropItem>();
-                    _inventory.Inventory.TryToAdd(new Item(dropItem.ItemInfo));
+                    _inventory.Inventory.TryToAdd(new Item(dropItem.ItemInfo,1));
                     var parent = hit.transform.parent;
                     if (parent != null)
                         Destroy(parent.gameObject);

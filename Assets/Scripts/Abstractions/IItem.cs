@@ -7,5 +7,4 @@ public interface IItem
     IItemInfo Info { get; }
     IItemState State { get; }
     IItem Clone(int amount);
-    GameObject GameObject { get; }
 }
