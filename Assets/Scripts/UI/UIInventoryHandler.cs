@@ -110,7 +110,27 @@ public class UIInventoryHandler : MonoBehaviour
             {
                 x.GetComponent<Outline>().enabled = false;
                 x.IsSelected = false;
+                var children = GameObject.FindWithTag("MainCamera").gameObject.GetComponentsInChildren<Transform>();
+                if (children.Length != 0)
+                {
+                    for (int i = 0; i < children.Length; i++)
+                    {
+                        if (children[i] != GameObject.FindWithTag("MainCamera").transform)
+                            Destroy(children[i].gameObject);
+                    }
+                }
             }
         }
+
+        if (!_uiInventory._uiSlots[n - 1].Slot.IsEmpty)
+        {
+            //TODO Нужно вынесни в другой метод Spawn
+            var obj = Instantiate(_uiInventory._uiSlots[n - 1].Slot.Item.Info.GameObject);
+            obj.transform.parent = GameObject.FindWithTag("MainCamera").transform;
+            obj.transform.localPosition = new Vector3(0.35f, -0.55f, 0.55f);
+            obj.transform.localRotation = Quaternion.LookRotation(new Vector3(-90,0,0));
+            obj.GetComponent<Rigidbody>().isKinematic = true;
+        }
+       
     }
 }

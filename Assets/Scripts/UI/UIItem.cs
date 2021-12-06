@@ -13,12 +13,14 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
     private Canvas _canvas;
     private RectTransform _rectTransform;
     private Transform _inventoryTransform;
+    private Transform _equipPosition;
 
     private void Start()
     {
         _rectTransform = GetComponent<RectTransform>();
         _canvas = GetComponentInParent<Canvas>();
         _canvasGroup = GetComponent<CanvasGroup>();
+        _equipPosition = GameObject.FindWithTag("EquipPosition").transform;
         //_cameraTransform = FindObjectOfType<PlayerController>().gameObject.GetComponentInChildren<Camera>().transform;
     }
 
@@ -52,7 +54,7 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
             {
                 var obj = Instantiate(item.Info.GameObject);  
                 //TODO Изменить куда спавнится предмет.
-                obj.transform.position = new Vector3(1, 1, 1);
+                obj.transform.position = Vector3.forward;
             }
             uiInvetory.Inventory.RemoveFromSlot(item.Info.Type,uiSlot.Slot,item.State.Amount);
         }

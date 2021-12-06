@@ -32,9 +32,13 @@ public class UIInventory : MonoBehaviour
             if (selectedSlot != null && !selectedSlot.Slot.IsEmpty)
             {
                 var item = selectedSlot.Slot.Item;
-                var obj = Instantiate(item.Info.GameObject);    
+                //TODO исправить как-то, а то в обьектах есть сама камера
+                var сhildren = GameObject.FindWithTag("MainCamera").gameObject.GetComponentsInChildren<Transform>();
+                var obj = сhildren[1];
+                obj.GetComponent<Rigidbody>().isKinematic = false;
+                obj.parent = null;
                 //TODO Изменить куда спавниться предмет.
-                obj.transform.position = new Vector3(1, 1, 1);
+                obj.transform.position = GameObject.FindWithTag("DroppedPosition").transform.position;
                 Inventory.RemoveFromSlot(item.Info.Type,selectedSlot.Slot);
             }
         }

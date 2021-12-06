@@ -7,6 +7,8 @@ TagManager:
   - Selectable
   - branch
   - CampFire
+  - EquipPosition
+  - DroppedPosition
   layers:
   - Default
   - TransparentFX

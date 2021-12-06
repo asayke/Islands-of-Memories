@@ -18,6 +18,7 @@ public class CampFire : MonoBehaviour
     private void Awake()
     {
         _branches = GameObject.FindGameObjectsWithTag("branch");
+        print(_branches.Length);
         _particle = GetComponentInChildren<ParticleSystem>();
         foreach (var x in _branches)
             x.SetActive(false);
