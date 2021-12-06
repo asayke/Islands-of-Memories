@@ -25,13 +25,6 @@ public class UIInventory : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P))
             Inventory.TryToAdd(new Item(_item2));
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            _pausemenu.SetActive(!_pausemenu.activeSelf);
-            Cursor.lockState = _pausemenu.activeSelf ?  CursorLockMode.None : CursorLockMode.Locked ;
-            Cursor.visible = _pausemenu.activeSelf;
-        }
-        
         //Выбор предметов на q, одну штуку
         if (Input.GetKeyDown(KeyCode.Q))
         {
