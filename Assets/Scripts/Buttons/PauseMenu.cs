@@ -13,7 +13,7 @@ public class PauseMenu : MonoBehaviour
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
             Cursor.lockState = pauseMenu.activeSelf ?  CursorLockMode.None : CursorLockMode.Locked ;
-            Cursor.visible = !pauseMenu.activeSelf;
+            Cursor.visible = pauseMenu.activeSelf;
         }
     }
 }

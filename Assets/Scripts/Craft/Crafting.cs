@@ -5,7 +5,7 @@ using UnityEngine;
 public class Crafting : MonoBehaviour
 {
     [SerializeField] private Recipe _recipe;
-    [SerializeField] private Recipe _recipe1;
+    [SerializeField] private GameObject craftmenu;
     private Inventory _inventory;
 
     private void Start()
@@ -15,16 +15,19 @@ public class Crafting : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            CraftItem(_recipe);
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            CraftItem(_recipe1);
-        }
+        // if (Input.GetKeyDown(KeyCode.I))
+        // {
+        //     craftmenu.SetActive(!craftmenu.activeSelf);
+        //     Cursor.lockState = craftmenu.activeSelf ?  CursorLockMode.None : CursorLockMode.Locked ;
+        //     Cursor.visible = craftmenu.activeSelf;
+        // }
     }
 
+    public void CraftAxe()
+    {
+        CraftItem(_recipe);
+    }
+    
     private void CraftItem(IRecipe recipe)
     {
         for (var i = 0; i < recipe.Components.Count; ++i)
