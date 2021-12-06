@@ -74,6 +74,18 @@ public class UIInventoryHandler : MonoBehaviour
                     {
                         EatItem(_selectingSlot.Slot.Item);
                         _uiInventory.Inventory.RemoveFromSlot(_selectingSlot.Slot.Item.Info.Type,_selectingSlot.Slot);
+                        if (_selectingSlot.Slot.IsEmpty)
+                        {
+                            var children = GameObject.FindWithTag("MainCamera").gameObject.GetComponentsInChildren<Transform>();
+                            if (children.Length != 0)
+                            {
+                                for (int i = 0; i < children.Length; i++)
+                                {
+                                    if (children[i] != GameObject.FindWithTag("MainCamera").transform)
+                                        Destroy(children[i].gameObject);
+                                }
+                            }
+                        }
                     }
                 }
             }

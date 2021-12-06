@@ -18,4 +18,5 @@ public enum Type
     Axe,
     Fibre,
     Coconut,
+    Branch,
 }

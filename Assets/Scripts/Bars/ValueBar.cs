@@ -1,3 +1,4 @@
+using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.UI;
 using static System.Math;
@@ -14,6 +15,13 @@ public class ValueBar : MonoBehaviour, IBar
     public virtual void SetMaxValue(float value)
     {
         _slider.maxValue = value;
+    }
+
+
+    public virtual void SetValue(float value)
+    {
+        _slider.value = value;
+        UpdateTextValue();
     }
 
     public virtual void DecreaseValue(float value)

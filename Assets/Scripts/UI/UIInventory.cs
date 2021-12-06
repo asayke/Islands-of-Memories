@@ -28,18 +28,25 @@ public class UIInventory : MonoBehaviour
         //Выбор предметов на q, одну штуку
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            var selectedSlot = _uiSlots?.FirstOrDefault(x => x.IsSelected);
-            if (selectedSlot != null && !selectedSlot.Slot.IsEmpty)
+            //TDOO убрать try catch
+            try
             {
-                var item = selectedSlot.Slot.Item;
-                //TODO исправить как-то, а то в обьектах есть сама камера
-                var сhildren = GameObject.FindWithTag("MainCamera").gameObject.GetComponentsInChildren<Transform>();
-                var obj = сhildren[1];
-                obj.GetComponent<Rigidbody>().isKinematic = false;
-                obj.parent = null;
-                //TODO Изменить куда спавниться предмет.
-                obj.transform.position = GameObject.FindWithTag("DroppedPosition").transform.position;
-                Inventory.RemoveFromSlot(item.Info.Type,selectedSlot.Slot);
+                var selectedSlot = _uiSlots?.FirstOrDefault(x => x.IsSelected);
+                if (selectedSlot != null && !selectedSlot.Slot.IsEmpty)
+                {
+                    var item = selectedSlot.Slot.Item;
+                    //TODO исправить как-то, а то в обьектах есть сама камера
+                    var сhildren = GameObject.FindWithTag("MainCamera").gameObject.GetComponentsInChildren<Transform>();
+                    var obj = сhildren[1];
+                    obj.GetComponent<Rigidbody>().isKinematic = false;
+                    obj.parent = null;
+                    //TODO Изменить куда спавниться предмет.
+                    obj.transform.position = GameObject.FindWithTag("DroppedPosition").transform.position;
+                    Inventory.RemoveFromSlot(item.Info.Type,selectedSlot.Slot);
+                }
+            }
+            catch
+            {
             }
         }
         

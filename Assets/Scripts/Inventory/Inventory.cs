@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using UnityEditor.Rendering;
+using UnityEngine.Rendering;
 using Debug = UnityEngine.Debug;
 
 public class Inventory : IInventory
@@ -168,6 +171,15 @@ public class Inventory : IInventory
             .Aggregate(0, (x, y) => x + y.State.Amount);
         return b >= amount;
     }
+
+    public bool HasItemByType(Type type)
+    {
+        var items = GetItems()?.ToList();
+        if (items.Count == 0)
+            return false;
+        return items.Count(x => x != null && x.Info.Type == type) != 0;
+    }
+    
     
     private void OnInventoryStateChanged()
     {
