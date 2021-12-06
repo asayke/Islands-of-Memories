@@ -5,10 +5,13 @@ namespace Buttons
 {
     public class Resume : MonoBehaviour, IButton
     {
+        [SerializeField] private GameObject _menu;
         
         public void OnClick()
         {
-            SceneManager.LoadScene(0);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            _menu.SetActive(false);
         }
     }
 }

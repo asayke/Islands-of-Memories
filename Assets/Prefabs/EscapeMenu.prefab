@@ -274,7 +274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 646976621566573296}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EscapeMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,6 +897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackToPauseHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2479538902979935498, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Text
       value: "\u041D\u0430\u0437\u0430\u0434"
@@ -1003,14 +1007,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
---- !u!224 &3067957063971265971 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2479538903816663308, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
-  m_PrefabInstance: {fileID: 646976621003713727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3067957062859045508 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
+  m_PrefabInstance: {fileID: 646976621003713727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3067957063971265971 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2479538903816663308, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
   m_PrefabInstance: {fileID: 646976621003713727}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &646976621003713725
@@ -1037,6 +1041,10 @@ PrefabInstance:
     - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Name
       value: SettingsHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2479538902979935498, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Text
@@ -1179,6 +1187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControllingHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2479538902979935498, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Text
       value: "\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435"
@@ -1289,6 +1301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResumeHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2479538902979935498, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Text
       value: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C\n"
@@ -1384,7 +1400,7 @@ PrefabInstance:
     - target: {fileID: 2479538903816663309, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 646976622603933188}
+      objectReference: {fileID: 0}
     - target: {fileID: 2479538903816663309, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClick
@@ -1400,25 +1416,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2479538903816663308, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
   m_PrefabInstance: {fileID: 646976621958176596}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3067957064052050287 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
-  m_PrefabInstance: {fileID: 646976621958176596}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &646976622603933188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3067957064052050287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ea8073e9f24d4ab6216f5bbf40cd8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  settingsMenu: {fileID: 0}
 --- !u!1001 &646976622067006575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1429,6 +1426,10 @@ PrefabInstance:
     - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Name
       value: LoadGameHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2479538902979935498, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Text
@@ -1569,6 +1570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraphicHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2479538902979935498, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Text
       value: "\u0413\u0440\u0430\u0444\u0438\u043A\u0430"
@@ -1679,6 +1684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GeneralHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2479538902979935498, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Text
       value: "\u041E\u0441\u043D\u043E\u0432\u043D\u044B\u0435"
@@ -1788,6 +1797,10 @@ PrefabInstance:
     - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Name
       value: QuitHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479538902951892539, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2479538902979935498, guid: 0ceb0ef62fc920c4c9a29993e30da315, type: 3}
       propertyPath: m_Text

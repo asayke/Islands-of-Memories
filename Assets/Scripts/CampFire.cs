@@ -44,7 +44,7 @@ public class CampFire : MonoBehaviour
     {
         if (_particle.isPlaying)
         {
-            _heathBar.DecreaseValue(0.05f);
+            _heathBar.IncreaseValue(0.05f);
         }
     }
     
