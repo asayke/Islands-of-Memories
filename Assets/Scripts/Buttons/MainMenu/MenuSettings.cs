@@ -7,6 +7,7 @@ namespace Buttons
     {
         [SerializeField] private GameObject mainMenu;
         [SerializeField] private GameObject settingsMenu;
+
         public void OnClick()
         {
             mainMenu.SetActive(false);
