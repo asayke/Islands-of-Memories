@@ -9,6 +9,7 @@ TagManager:
   - CampFire
   - EquipPosition
   - DroppedPosition
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Tree
   - 
   - 
   - 

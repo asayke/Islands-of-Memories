@@ -21,7 +21,6 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
         _canvas = GetComponentInParent<Canvas>();
         _canvasGroup = GetComponent<CanvasGroup>();
         _equipPosition = GameObject.FindWithTag("EquipPosition").transform;
-        //_cameraTransform = FindObjectOfType<PlayerController>().gameObject.GetComponentInChildren<Camera>().transform;
     }
 
     public void OnBeginDrag(PointerEventData eventData)

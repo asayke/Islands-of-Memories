@@ -6,12 +6,12 @@ namespace Sliders
 {
     public class SoundSlider : MonoBehaviour 
     {
-        [SerializeField] private Slider slider;
-        [SerializeField] private GameObject camera;
-
-        private void Update()
-        {
-            camera.GetComponent<AudioSource>().volume = slider.value;
-        }
+        [SerializeField] private Slider _slider;
+        [SerializeField] private AudioSource _source;
+        //
+        // private void Update()
+        // {
+        //     _source.volume = _slider.value;
+        // }
     }
 }
